@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+{% block body %}
+    <div class="row">
+        <div class="col-md-4 offset-md-4">
+            <form action="/update/{{ user.id }}" method="POST" class="card bg-dark text-light">
+                <div class="card-body p-4">
+                    <div class="mb-3">
+                        <label for="fullname">Write your fullname:</label>
+                        <input type="text" name="fullname" placeholder="Write your fullname" class="form-control rounded-0 border-0" value="{{ user.fullname }}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="email">Write your email:</label>
+                        <input type="text" name="email" placeholder="Write your email" class="form-control rounded-0 border-0" value="{{ user.email }}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="phone">Write your phone:</label>
+                        <input type="text" name="phone" placeholder="Write your phone" class="form-control rounded-0 border-0" value="{{ user.phone }}">
+                    </div>
+                    <div class="d-grid col-6 mx-auto">
+                        <button class="btn btn-primary">Update</button>
+                    </div>
+                </div>
+                <!-- <input type="text" name="fullname" placeholder="Write your fullname" value="{{ user.fullname }}">
+                <input type="text" name="email" placeholder="Write your email" value="{{ user.email }}">
+                <input type="text" name="phone" placeholder="Write your phone" value="{{ user.phone }}">
+                <button>Save</button> -->
+            </form>
+        </div>
+    </div>
+{% endblock %}

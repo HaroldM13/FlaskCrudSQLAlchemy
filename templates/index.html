@@ -1,0 +1,37 @@
+{% extends 'layout.html' %}
+{% block body %}
+    
+
+    <div class="row">
+        <div class="col-md-5">
+            {% include 'partials/_message.html' %}
+            {% include 'partials/_contactForm.html' %}
+        </div>
+        <div class="col-md-7">
+            {% for user in users %}
+            <div class="card mb-1 text-white bg-dark">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <h5>{{ user.fullname }}</h5>
+                        <div>
+                            <a href="{{ url_for('contacts.update', id=user['id']) }}" class="btn bg-light btn-sm rounded-0">Actualizar</a>
+                            <a href="{{ url_for('contacts.delete', id=user['id']) }}" class="btn bg-danger btn-sm rounded-0">Borrar</a>
+                        </div>
+                    </div>
+                    <p>{{ user.email }}</p>
+                    <p>{{ user.phone }}</p>
+                </div>
+            </div>
+            {% endfor %}
+            <!-- <div>
+                <ul>
+                    {% for user in users %}
+                        <li>{{ user['id'] }} - {{ user['fullname'] }} - {{ user['email'] }} - {{ user['phone'] }}</li>
+                        <a href="{{ url_for('contacts.update', id=user['id']) }}">Actualizar</a>
+                        <a href="{{ url_for('contacts.delete', id=user['id']) }}">Borrar</a>
+                    {% endfor %}
+                </ul>
+            </div> -->
+        </div>  
+    </div>
+{% endblock %}
